@@ -1,0 +1,8 @@
+git add .
+
+git commit -m "하고 싶은 말"
+
+git push origin master
+
+로그인 창이 뜸
+
