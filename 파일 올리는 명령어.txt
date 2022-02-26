@@ -1,3 +1,6 @@
+폴더를 선택하고, 우클릭,  Git Bash here 를 클릭!
+
+
 git add .
 
 git commit -m "하고 싶은 말"
