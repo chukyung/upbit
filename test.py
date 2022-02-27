@@ -71,16 +71,16 @@ while True:
                         op_mode = False
                         time.sleep(10)
                     
-        if now.hour == 9 and 0 <= now.minute <=5:
+        if now.minute <=5 and 10 <= now.second <=19:
             op_mode = True
             ma5 = get_ma5("KRW-MANA")
             ma20 = get_ma20("KRW-MANA")
             df = pyupbit.get_ohlcv("KRW-MANA", count=5)
-            df_high = max(df.iloc[0]['high'], df.iloc[1]['high'], df.iloc[2]['high'], df.iloc[3]['high'])*1.01
+            df_high = max(df.iloc[0]['close'], df.iloc[1]['close'], df.iloc[2]['close'])*1.01
             current_price = get_current_price("KRW-MANA")
             if op_mode is True and hold is False and current_price > ma5 and current_price > ma20 and current_price > df_high:
                 krw = upbit.get_balance("KRW")
-    #           upbit.buy_market_order("KRW-MANA", krw*0.1)
+    #           upbit.buy_market_order("KRW-MANA", krw*0.9)
                 hold =True
 
     except Exception as e:
